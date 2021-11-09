@@ -1,0 +1,256 @@
+
+
+
+<div class="container" >
+    <h1 style="text-align: center;">Generate a generic Privacy Policy </h1>
+    
+    <form [formGroup]="exform" style="float: left;">
+    <div class="form-group">
+    <label for="Name">App Name</label>
+    <input formControlName="name" class="form-control" type="text" required="required" [(ngModel)]="appName"  placeholder="Awesome App Name" />
+    <small *ngIf="namee.invalid && namee.touched" class="text-danger">Please provide an App Name</small>    
+</div>
+    <div class="form-group">
+        <label for="email">Contact Information</label>
+        <input formControlName="email" class="form-control" type="email" required="required" [(ngModel)]='appContact' placeholder="Email Address" />
+        <small *ngIf="email.invalid && email.touched" class="text-danger">Please provide contact info! </small> 
+    </div>
+    <div class="form-group">
+        <label for="Name">Personally Identifiable Information</label>
+        <input  formControlName="Personally" class="form-control f" type="text" [(ngModel)]='pidInfoIn' placeholder="Personally Identifiable Information you collect (comma separated)" />
+    </div> 
+    <div class="form-group">
+    <label for="Inputselect">App Type</label>
+    <select class="form-control" [(ngModel)]='typeOfApp'>
+        <option selected disabled="" >Select app type</option>
+        <option>Free</option>
+        <option>Open Source</option>
+        <option>Freemium</option>
+        <option>Ad Supported</option>
+        <option>Commercial</option>
+   
+    </select>
+   
+    </div> 
+    <div class="form-group">
+    <label for="Inputselect">Mobile OS</label>
+    <select formControlName="os" class="form-control" [(ngModel)]='osType'>
+         <option selected disabled="">Select mobile OS</option>
+                        <option>Android</option>
+                        <option>iOS</option>
+                        <option>KaiOS</option>
+                        <option>Android &amp; iOS</option>
+                        <option>Android, iOS &amp; KaiOS</option>
+        </select>
+   
+    </div>
+    <div class="form-group">
+        <label for="Name">Policy Effective Date</label>
+        <input formControlName="date" class="form-control" type="date" required="" [(ngModel)]='effectiveFromDate' />
+        <small *ngIf="date.invalid && date.touched" class="text-danger">Please provide an date</small>    
+    </div> 
+
+    <div class="form-group">
+      <label for="Inputselect">OwnerType</label>
+      <select class="form-control"   [(ngModel)]="typeOfDev">
+        <option selected disabled="">Select owner type</option>
+                        <option>Individual</option>
+                        <option>Company</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+        <label for="Inputselect">Services</label>
+        <select formControlName="os" class="form-control" [(ngModel)]='servise'>
+             <option selected disabled="">Services</option>
+                            <option>Admob</option>
+                            <option>facebook</option>
+                            <option>unity</option>
+                            <option>firebase</option>
+            </select>
+       
+        </div>
+    
+    <div class="form-group" *ngIf="typeOfDev=='Company'">
+        <label for="Name">Company Name</label>
+        <input formControlName="name" class="form-control" type="text" [(ngModel)]='companyName' placeholder="Company Name" />
+    </div> 
+
+    
+        <div class="form-group" *ngIf="typeOfDev=='Individual'">
+        <label for="Name">Developer Name</label>
+        <input formControlName="Personally" class="form-control" type="text" [(ngModel)]='devName' placeholder="Developer Name" />
+    </div> 
+    
+
+    </form>
+    <p style="float:right;width: 52%;margin-left:10px;margin-top: 30px;">
+        <div class="" >
+          <div ></div>
+          <div class="">
+            <header class="">
+              <p class="">Privacy Policy</p>
+            </header>
+            <section style="float:right;width: 52%;margin-left:10px;margin-top: 30px;" class="modal-card-body modal-box">
+              <div ><strong>Privacy Policy</strong>
+                <p>
+                  {{ devOrCompanyName }} built the {{ appName }} app as
+                  {{typeOfAppTxt}} app. This SERVICE is provided by
+                  {{ devOrCompanyName }} {{ atNoCost }} and is intended for use as
+                  is.
+                </p>
+                <p>
+                  This page is used to inform visitors regarding {{myOrOur}}
+                  policies with the collection, use, and disclosure of Personal
+                  Information if anyone decided to use {{myOrOur}} Service.
+                </p>
+                <p>
+                  If you choose to use {{ myOrOur }} Service, then you agree to
+                  the collection and use of information in relation to this
+                  policy. The Personal Information that {{iOrWe}} collect is
+                  used for providing and improving the Service. {{iOrWe |
+                  titlecase }} will not use or share your information with
+                  anyone except as described in this Privacy Policy.
+                </p>
+                <p>
+                  The terms used in this Privacy Policy have the same meanings
+                  as in our Terms and Conditions, which are accessible at
+                  {{ appName }} unless otherwise defined in this Privacy Policy.
+                </p>
+                <p><strong>Information Collection and Use</strong></p>
+                <p>
+                  For a better experience, while using our Service, {{ iOrWe }}
+                  may require you to provide us with certain personally
+                  identifiable information{{pidInfoIn}} The information that
+                  {{iOrWe}} request will be {{retainedInfo}}.
+                </p>
+                <div>
+                  <p>
+                    The app does use third-party services that may collect
+                    information used to identify you.
+                  </p>
+                  <p>
+                    Link to the privacy policy of third-party service providers used
+                    by the app
+                  </p>
+                  <ul>
+                 <li>{{servise}}</li> 
+                </ul>
+                </div>
+                <p><strong>Log Data</strong></p>
+                <p>
+                  {{iOrWe | titlecase }} want to inform you that whenever you
+                  use {{myOrOur}} Service, in a case of an error in the app
+                  {{iOrWe}} collect data and information (through third-party
+                  products) on your phone called Log Data. This Log Data may
+                  include information such as your device Internet Protocol
+                  (&ldquo;IP&rdquo;) address, device name, operating system version, the
+                  configuration of the app when utilizing {{ myOrOur }} Service,
+                  the time and date of your use of the Service, and other
+                  statistics.
+                </p>
+                <p><strong>Cookies</strong></p>
+                <p>
+                  Cookies are files with a small amount of data that are
+                  commonly used as anonymous unique identifiers. These are sent
+                  to your browser from the websites that you visit and are
+                  stored on your device&apos;s internal memory.
+                </p>
+                <p>
+                  This Service does not use these &ldquo;cookies&rdquo; explicitly. However,
+                  the app may use third-party code and libraries that use
+                  &ldquo;cookies&rdquo; to collect information and improve their services.
+                  You have the option to either accept or refuse these cookies
+                  and know when a cookie is being sent to your device. If you
+                  choose to refuse our cookies, you may not be able to use some
+                  portions of this Service.
+                </p>
+                <p><strong>Service Providers</strong></p>
+                <p>
+                  {{iOrWe | titlecase }} may employ third-party companies and
+                  individuals due to the following reasons:
+                </p>
+                <ul>
+                  <li>To facilitate our Service;</li>
+                  <li>To provide the Service on our behalf;</li>
+                  <li>To perform Service-related services; or</li>
+                  <li>To assist us in analyzing how our Service is used.</li>
+                </ul>
+                <p>
+                  {{iOrWe | titlecase }} want to inform users of this Service
+                  that these third parties have access to their Personal
+                  Information. The reason is to perform the tasks assigned to
+                  them on our behalf. However, they are obligated not to
+                  disclose or use the information for any other purpose.
+                </p>
+                <p><strong>Security</strong></p>
+                <p>
+                  {{iOrWe | titlecase }} value your trust in providing us your
+                  Personal Information, thus we are striving to use commercially
+                  acceptable means of protecting it. But remember that no method
+                  of transmission over the internet, or method of electronic
+                  storage is 100% secure and reliable, and {{ iOrWe }} cannot
+                  guarantee its absolute security.
+                </p>
+                <p><strong>Links to Other Sites</strong></p>
+                <p>
+                  This Service may contain links to other sites. If you click on
+                  a third-party link, you will be directed to that site. Note
+                  that these external sites are not operated by {{ meOrUs }}.
+                  Therefore, {{ iOrWe }} strongly advise you to review the
+                  Privacy Policy of these websites. {{iOrWe | titlecase }} have
+                  no control over and assume no responsibility for the content,
+                  privacy policies, or practices of any third-party sites or
+                  services.
+                </p>
+                <p><strong>Children&rsquo;s Privacy</strong></p>
+                <div >
+                  <p>
+                    These Services do not address anyone under the age of 13.
+                    {{iOrWe | titlecase }} do not knowingly collect personally
+                    identifiable information from children under 13 years of age. In the case
+                    {{ iOrWe }} discover that a child under 13 has provided
+                    {{ meOrUs }} with personal information, {{ iOrWe }} immediately
+                    delete this from our servers. If you are a parent or guardian
+                    and you are aware that your child has provided us with
+                    personal information, please contact {{ meOrUs }} so that
+                    {{ iOrWe }} will be able to do the necessary actions.
+                  </p>
+                </div>
+                <div >
+                  <p>
+                    {{iOrWe | titlecase }} do not knowingly collect personally
+                    identifiable information from children. {{iOrWe | titlecase }} 
+                    encourage all children to never submit any personally
+                    identifiable information through 
+                    the Application and/or Services.
+                    {{iOrWe | titlecase }} encourage parents and legal guardians to monitor 
+                    their children's Internet usage and to help enforce this Policy by instructing 
+                    their children never to provide personally identifiable information through the Application and/or Services without their permission. If you have reason to believe that a child 
+                    has provided personally identifiable information to us through the Application and/or Services, 
+                    please contact us. You must also be at least 16 years of age to consent to the processing 
+                    of your personally identifiable information in your country (in some countries we may allow your parent 
+                    or guardian to do so on your behalf).
+                  </p>
+                </div>
+                <p><strong>Changes to This Privacy Policy</strong></p>
+                <p>
+                  {{iOrWe | titlecase }} may update our Privacy Policy from
+                  time to time. Thus, you are advised to review this page
+                  periodically for any changes. {{iOrWe | titlecase }} will
+                  notify you of any changes by posting the new Privacy Policy on
+                  this page.
+                </p>
+                <p>This policy is effective as of {{ effectiveFromDate }}</p>
+                <p><strong>Contact Us</strong></p>
+                <p>
+                  If you have any questions or suggestions about {{ myOrOur }}
+                  Privacy Policy, do not hesitate to contact {{meOrUs}} at {{
+                  appContact }}.
+                </p>
+               </div>
+              </section>
+          </div>
+        </div>
+    
+</div> 
